@@ -13,7 +13,7 @@ spec:
         app: node
     spec:
       containers:
-      - name: node
-        image: node:14.17.5
+      - name: docker.io/bsspreto/conv-temp
+        image: docker.io/bsspreto/conv-temp:v1
         ports:
         - containerPort: 8081
