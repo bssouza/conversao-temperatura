@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-deployment
+  name: conv-temp
 spec:
   selector:
     matchLabels:
@@ -13,7 +13,7 @@ spec:
         app: node
     spec:
       containers:
-      - name: docker.io/bsspreto/conv-temp
+      - name: conv-temp
         image: docker.io/bsspreto/conv-temp:v1
         ports:
         - containerPort: 8081
