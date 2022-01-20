@@ -1,17 +1,19 @@
+--- 
 apiVersion: v1
 kind: Deployment
-metadata:
+metadata: 
   name: conv-temp
-spec:
-  containers:
-    - name: conv-temp
-      image: bssouza/conv-temp:v1
-      ports:
-        - containerPort: 8081
-        resources:
-          requests:
-            cpu: 100m
-            memory: 64Mi
-          limits:
+spec: 
+  containers: 
+    - 
+      image: "bssouza/conv-temp:v1"
+      name: conv-temp
+      ports: 
+        containerPort: 8081
+        resources: 
+          limits: 
             cpu: 200m
             memory: 128Mi
+          requests: 
+            cpu: 100m
+            memory: 64Mi
