@@ -1,10 +1,38 @@
-apiVersion: "apps/v1"
-kind: "Deployment"
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: conv-temp
 spec:
-  containers:
-    - name: conv-temp
-      image: docker.io/bsspreto/conv-temp:v1
-      ports:
-        - containerPort: 80
+  selector:
+    matchLabels:
+      app: conv-temp
+  template:
+    metadata:
+      labels:
+        app: conv-temp
+    spec:
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: conv-temp
+        image: docker.io/bsspreto/conv-temp:v1
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
+
+#apiVersion: "apps/v1"
+#kind: "Deployment"
+#metadata:
+#  name: conv-temp
+#spec:
+#  containers:
+#    - name: conv-temp
+#      image: docker.io/bsspreto/conv-temp:v1
+#      ports:
+#        - containerPort: 80
