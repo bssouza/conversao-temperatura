@@ -1,4 +1,4 @@
-apiVersions: pods
+apiVersions: pods/v1
 kind: Pod
 metadata:
   name: conv-temp
