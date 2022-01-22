@@ -3,8 +3,17 @@ kind: Deployment
 metadata:
   name: conv-temp
 spec:
-  containers:
-    - name: conv-temp
-      image: docker.io/bsspreto/conv-temp:v1
-      ports:
+  selector:
+    matchLabels:
+      app: node
+  #replicas: 2 # tells deployment to run 2 pods
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+      - name: conv-temp
+        image: docker.io/bsspreto/conv-temp:v1
+        ports:
         - containerPort: 8080
