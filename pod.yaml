@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: conv-temp
+spec:
+  containers:
+    - name: conv-temp
+      image: docker.io/bsspreto/conv-temp:v1
+      ports:
+        - containerPort: 80
