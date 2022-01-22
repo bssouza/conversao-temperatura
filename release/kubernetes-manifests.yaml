@@ -17,26 +17,3 @@ spec:
         image: docker.io/bsspreto/conv-temp:v1
         ports:
         - containerPort: 8080
-      ---
-      apiVersion: apps/v1
-      kind: Service
-      metadata:
-        name: conv-temp-ext
-      spec:
-        type: LoadBalancer
-        selector:
-          app: conv-temp
-        ports:
-          targetPort: 8080
-      --- 
-      apiVersion: autoscaling/v1
-      kind: HorizontalPodAutoscaler
-      metadata:
-        name: conv-temp-scaler
-      spec:
-        scaleTargetRef:
-          kind: ReplicaSet
-          name: conv-temp
-         minReplicas: 1
-         maxReplicas: 4
-         targetCPUUtilizationPercentage: 30
