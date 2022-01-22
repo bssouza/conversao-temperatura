@@ -1,5 +1,5 @@
-apiVersion: po/v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: conv-temp
 spec:
