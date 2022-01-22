@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: conv-temp-rep
+spec:
+  selector: 
+    matchLabels:
+    app: conv-temp
+  template:
+    metadata:
+      labels:
+        app: conv-temp
+  containers:
+    - name: conv-temp
+      image: docker.io/bsspreto/conv-temp:v1
+      ports:
+        - containerPort: 80
