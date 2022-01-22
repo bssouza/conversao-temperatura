@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: po/v1
 kind: Pod
 metadata:
   name: conv-temp
